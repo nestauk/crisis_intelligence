@@ -205,7 +205,7 @@ pie(
     colors=pal,
 )
 
-plt.savefig(f"{DATA_PATH}/outputs/figures/pie_chart_hum_crisis_split.png")
+plt.savefig(f"{DATA_PATH}/outputs/figures/pie_chart_hum_crisis_split.svg")
 
 plt.show()
 
@@ -224,7 +224,7 @@ pie(
     colors=pal,
 )
 
-plt.savefig(f"{DATA_PATH}/outputs/figures/pie_chart_hum_crisis_split_v2.png")
+plt.savefig(f"{DATA_PATH}/outputs/figures/pie_chart_hum_crisis_split_v2.svg")
 
 plt.show()
 
@@ -284,9 +284,13 @@ hum_crisis_split = sunburst_chart(
     path=["high_level_crisis_types", "type_of_humanitarian_challenge"],
     values="Project",
     color="Project",
-    color_continuous_scale=pal,
+    color_continuous_scale="magenta",
     width=800,
     height=800,
+)
+
+hum_crisis_split.write_image(
+    f"{DATA_PATH}/outputs/figures/sunburst_chart_hum_split.svg"
 )
 
 hum_crisis_split.show()
@@ -356,7 +360,7 @@ method_vs_class_vs_reg_pivot = (
 
 ax = bar_chart(method_vs_class_vs_reg_pivot, "supervised", stacked=True, color=pal)
 ax.set(xlabel="Prediction Type", ylabel="Percentage")
-plt.savefig(f"{DATA_PATH}/outputs/figures/bar_chart_methods_split.png")
+plt.savefig(f"{DATA_PATH}/outputs/figures/bar_chart_methods_split.svg")
 plt.show()
 
 # %% [markdown]
@@ -394,7 +398,7 @@ methods_vs_techniques_heatmap = case_studies_methods_vs_techniques.pivot_table(
 ax = plt.subplots(figsize=[10, 10]), sns.heatmap(
     methods_vs_techniques_heatmap, annot=True, cmap=pal
 )
-plt.savefig(f"{DATA_PATH}/outputs/figures/method_vs_techniques_heatmap.png")
+plt.savefig(f"{DATA_PATH}/outputs/figures/method_vs_techniques_heatmap.svg")
 plt.show()
 
 # %% [markdown]
@@ -519,7 +523,7 @@ color_map = ["#7F00FF", "#00aaba"]
 
 ax = bar_chart(CCI_vs_PA_pivot, stacked=True, color=color_map)
 ax.set(xlabel="Stage of innovation", ylabel="Number of case studies")
-plt.savefig(f"{DATA_PATH}/outputs/figures/bar_chart_split_readiness_categories.png")
+plt.savefig(f"{DATA_PATH}/outputs/figures/bar_chart_split_readiness_categories.svg")
 plt.show()
 
 # %% [markdown]
@@ -555,7 +559,7 @@ ax = plt.subplots(figsize=[10, 10]), sns.heatmap(
     xlabel="Integrated into humanitarian workflows and systems",
     ylabel="Solution Readiness",
 )
-plt.savefig(f"{DATA_PATH}/outputs/figures/SR_vs_integration_heatmap.png")
+plt.savefig(f"{DATA_PATH}/outputs/figures/SR_vs_integration_heatmap.svg")
 plt.show()
 
 # %% [markdown]
@@ -594,7 +598,7 @@ ax = algorithms_groupby.plot(
 )
 ax.get_legend().remove()
 ax.set(xlabel="Algorithm", ylabel="Percentage")
-plt.savefig(f"{DATA_PATH}/outputs/figures/algo_dist.png")
+plt.savefig(f"{DATA_PATH}/outputs/figures/algo_dist.svg")
 plt.show()
 
 # %%
@@ -620,10 +624,10 @@ algo_sunburst = sunburst_chart(
 algo_sunburst.update_layout(uniformtext=dict(minsize=13, mode="show"))
 algo_sunburst.update_traces(textinfo="label")
 
+algo_sunburst.write_image(f"{DATA_PATH}/outputs/figures/algo_sunburst.svg")
 
-# %%
+algo_sunburst.show()
 
-# %%
 
 # %%
 
