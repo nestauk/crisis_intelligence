@@ -11,3 +11,4 @@ typer
 sh
 plotly
 seaborn
+kaleido #to export plotly visualisations as svg
