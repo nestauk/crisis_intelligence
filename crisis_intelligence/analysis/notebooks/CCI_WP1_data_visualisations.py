@@ -61,7 +61,7 @@ def strip_white_space(df):
 
 
 def pie(x, ax=None, labels=None, title=None, **plt_kwargs):
-    """strip white spaces from records
+    """plot pie chart
     args:
         x: data
         ax: axis
@@ -70,7 +70,7 @@ def pie(x, ax=None, labels=None, title=None, **plt_kwargs):
         **plt_kwargs: keyword args
 
     Returns:
-        pie charts
+        pie chart
     """
     ax = ax
     plt.pie(x=x, autopct="%.1f%%", labels=labels, **plt_kwargs)
@@ -82,7 +82,7 @@ def pie(x, ax=None, labels=None, title=None, **plt_kwargs):
 
 
 def sunburst_chart(df, path=None, values=None, **plt_kwargs):
-    """strip white spaces from records
+    """plot sunburst chart
     args:
         df: dataframe
         path: sunburst path
